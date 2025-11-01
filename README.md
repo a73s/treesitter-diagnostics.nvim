@@ -3,7 +3,7 @@ Gives you basic diagnostics from the treesitter parser. Its not perfect, and its
 Example config for lazy.nvim
 ```lua
   {
-    'a73s/treesitter-diagnostics',
+    'a73s/treesitter-diagnostics.nvim',
     opts = {
       patters = {
         '*.h',
