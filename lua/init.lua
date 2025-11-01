@@ -7,7 +7,7 @@ local defaults = {
     patterns = {},
 }
 
-ts_diag.config = function(opts)
+ts_diag.setup = function(opts)
 
     local settings = vim.tbl_extend('force', defaults, opts or {})
 
