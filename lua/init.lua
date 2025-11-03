@@ -22,8 +22,20 @@ ts_diag.setup = function(opts)
             if not vim.diagnostic.is_enabled({bufnr = args.buf}) then
                 return
             end
-            -- don't diagnose strange stuff
-            if vim.bo[args.buf].buftype ~= '' then
+
+            local success, toReturn = pcall(
+                function ()
+                    -- don't diagnose strange stuff
+                    if vim.bo[args.buf].buftype ~= '' then
+                        return true
+                    else
+                        return false
+                    end
+                end
+            )
+
+            -- catch the error that happens sometimes when the buffer does not exist
+            if not success or toReturn then
                 return
             end
 
